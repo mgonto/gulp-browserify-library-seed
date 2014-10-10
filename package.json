@@ -31,6 +31,7 @@
     "sinon-chai": "^2.5.0",
     "vinyl-transform": "0.0.1"
   },
+  "repository": "mgonto/gulp-browserify-library-seed",
   "engines": {
     "node": ">=0.8.0"
   }
