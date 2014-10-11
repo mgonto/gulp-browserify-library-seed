@@ -7,9 +7,14 @@ var gulp = require('gulp'),
     projectName = require('./package.json').name
     sourceFile = ['./src/index.js'];
 
-var browserified = function(options) {
+var browserified = function(standalone) {
   return transform(function(filename) {
-    var b = browserify(filename, options);
+    var b = browserify();
+    if (standalone) {
+      b.add(filename, {standalone: projectName});
+    } else {
+      b.require(filename, {expose: projectName});
+    }
     return b.bundle();
   });
 }
@@ -27,9 +32,7 @@ gulp.task('build-browserify', function() {
 
 gulp.task('build-standalone', function() {
   gulp.src(sourceFile)
-    .pipe(browserified({
-      standalone: projectName
-    }))
+    .pipe(browserified(true))
     .pipe(rename(projectName + '-standalone.js'))
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
