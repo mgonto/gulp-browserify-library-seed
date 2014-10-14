@@ -9,10 +9,11 @@ var gulp = require('gulp'),
 
 var browserified = function(standalone) {
   return transform(function(filename) {
-    var b = browserify();
     if (standalone) {
-      b.add(filename, {standalone: projectName});
+      var b = browserify({standalone: projectName});
+      b.add(filename);
     } else {
+      var b = browserify();
       b.require(filename, {expose: projectName});
     }
     return b.bundle();
