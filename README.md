@@ -7,7 +7,7 @@ This is a Kickstarter or a Seed project to use to build your own Library.
 * **[gulp](http://gulpjs.com/)**: Used for building
 * **[browserify](http://browserify.org)**: Used for importing modules into the lib
 * **[karma](http://karma-runner.github.io/0.12/index.html)**: Used for running tests on the lib
-* **[mocha](http://visionmedia.github.io/mocha/)**: Used as the Testing framework
+* **[mocha](http://mochajs.org/)**: Used as the Testing framework
 * **[Chai](http://chaijs.com/)**: Used as the expect/assertion library
 
 ## Gulp tasks
